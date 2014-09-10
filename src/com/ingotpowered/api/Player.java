@@ -23,5 +23,9 @@ public interface Player {
 
     public String getLocale();
 
+    public String getHostname();
+
+    public int getPort();
+
     public Position getCompassSpawnPosition();
 }
