@@ -66,7 +66,9 @@ public class EventFactory {
                         ex.printStackTrace();
                     }
                 }
-                finished.run();
+                if (finished != null) {
+                    finished.run();
+                }
             }
         });
     }
