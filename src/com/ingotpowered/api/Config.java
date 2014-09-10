@@ -1,5 +1,7 @@
 package com.ingotpowered.api;
 
+import com.ingotpowered.api.definitions.GameMode;
+
 import java.io.*;
 import java.lang.reflect.Field;
 
@@ -25,12 +27,14 @@ public class Config {
     private int spawnProtection = 0;
     private boolean computeVerifyToken = true;
     private String motd = "An Ingot IngotServer";
+    private int pluginEventThreads = 16;
 
     public void load() {
         try {
             BufferedReader br = new BufferedReader(new FileReader(new File("server.properties")));
             String in;
-            while ((in = br.readLine().trim()) != null) {
+            while ((in = br.readLine()) != null) {
+                in = in.trim();
                 if (in.startsWith("#")) {
                     continue;
                 }
@@ -63,6 +67,7 @@ public class Config {
             }
             br.close();
         } catch (Exception ex) {
+            ex.printStackTrace();
             System.out.println("Couldn't read config - generating: " + ex.getMessage());
             saveDefaultConfig();
         }
@@ -160,5 +165,9 @@ public class Config {
 
     public boolean shouldComputeVerifyToken() {
         return computeVerifyToken;
+    }
+
+    public int getPluginEventThreads() {
+        return pluginEventThreads;
     }
 }

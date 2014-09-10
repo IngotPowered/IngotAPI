@@ -1,5 +1,7 @@
 package com.ingotpowered.api;
 
+import com.ingotpowered.api.events.EventFactory;
+
 public abstract class Ingot {
 
     private static Ingot ingot;
@@ -17,7 +19,11 @@ public abstract class Ingot {
 
     public abstract void dispatchCommand(String command);
 
+    public abstract Player getPlayer(String name);
+
     public abstract void stop();
 
     public abstract Config getConfig();
+
+    public abstract EventFactory getEventFactory();
 }
