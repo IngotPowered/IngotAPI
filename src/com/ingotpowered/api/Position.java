@@ -4,19 +4,19 @@ public class Position {
 
     public static Position fromLong(long l) {
         Position p = new Position();
-        p.x = (int) (l >> 38);
-        p.y = (int) (l << 26 >> 52);
-        p.z = (int) (l << 38 >> 38);
+        p.x = ((int) (l >> 38)) / 32;
+        p.y = ((int) (l << 26 >> 52)) / 32;
+        p.z = ((int) (l << 38 >> 38)) / 32;
         return p;
     }
 
     public static long toLong(Position p) {
-        return (p.x & 0x3FFFFFF) << 38 | (p.y & 0xFFF) << 26 | (p.z & 0x3FFFFFF);
+        return (((int) p.x * 32) & 0x3FFFFFF) << 38 | (((int) p.y * 32) & 0xFFF) << 26 | (((int) p.z * 32) & 0x3FFFFFF);
     }
 
-    private int x = 0;
-    private int y = 0;
-    private int z = 0;
+    private double x = 0;
+    private double y = 0;
+    private double z = 0;
 
     public Position(int x, int y, int z) {
         this.x = x;
@@ -24,29 +24,35 @@ public class Position {
         this.z = z;
     }
 
+    public Position(double x, double y, double z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     private Position() { }
 
-    public int getX() {
+    public double getX() {
         return x;
     }
 
-    public int getY() {
+    public double getY() {
         return y;
     }
 
-    public int getZ() {
+    public double getZ() {
         return z;
     }
 
-    public void setX(int x) {
+    public void setX(double x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    public void setY(double y) {
         this.y = y;
     }
 
-    public void setZ(int z) {
+    public void setZ(double z) {
         this.z = z;
     }
 }
