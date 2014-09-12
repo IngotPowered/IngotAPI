@@ -55,4 +55,16 @@ public class Position {
     public void setZ(double z) {
         this.z = z;
     }
+
+    public boolean equals(Object o) {
+        if (!(o instanceof Position)) {
+            return false;
+        }
+        Position p = (Position) o;
+        return p.x == x && p.y == y && p.z == z;
+    }
+
+    public int hashCode() {
+        return ("" + x + ":" + y + ":" + z).hashCode();
+    }
 }
