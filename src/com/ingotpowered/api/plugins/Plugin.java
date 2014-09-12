@@ -1,11 +1,14 @@
 package com.ingotpowered.api.plugins;
 
+import java.io.File;
+
 public abstract class Plugin {
 
     private String name;
-    private String version;
+    private String author;
+    private String description;
     private String jarFilePath;
-    private String mainClassPath;
+    private File pluginDirectory;
 
     public abstract void onEnable();
 
@@ -15,15 +18,19 @@ public abstract class Plugin {
         return name;
     }
 
-    public final String getVersion() {
-        return version;
+    public String getAuthor() {
+        return author;
+    }
+
+    public final String getDescription() {
+        return description;
     }
 
     public final String getJarFilePath() {
         return jarFilePath;
     }
 
-    public final String getMainClassPath() {
-        return mainClassPath;
+    public File getPluginDirectory() {
+        return pluginDirectory;
     }
 }

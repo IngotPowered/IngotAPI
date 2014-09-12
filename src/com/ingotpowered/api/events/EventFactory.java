@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 public class EventFactory {
 
@@ -71,5 +72,15 @@ public class EventFactory {
                 }
             }
         });
+    }
+
+    public void destroyThreadPool() {
+        threadPool.shutdown();
+        try {
+            threadPool.awaitTermination(1000 * 30, TimeUnit.MILLISECONDS);
+            System.out.println("Plugin thread pool has been shut down.");
+        } catch (Exception ex) {
+            System.out.println("[ WARNING ] Can't shut down plugin threads! Is a plugin blocking on an event?");
+        }
     }
 }
