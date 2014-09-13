@@ -33,4 +33,7 @@ public abstract class Plugin {
     public File getPluginDirectory() {
         return pluginDirectory;
     }
+
+    public void handleException(Exception ex){
+    }
 }
