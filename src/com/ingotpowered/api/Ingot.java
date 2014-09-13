@@ -1,5 +1,6 @@
 package com.ingotpowered.api;
 
+import com.ingotpowered.api.commands.CommandRegistry;
 import com.ingotpowered.api.events.EventFactory;
 
 public abstract class Ingot {
@@ -26,4 +27,6 @@ public abstract class Ingot {
     public abstract Config getConfig();
 
     public abstract EventFactory getEventFactory();
+
+    public abstract CommandRegistry getCommandRegistry();
 }
