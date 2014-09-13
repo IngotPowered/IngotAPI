@@ -65,6 +65,7 @@ public class EventFactory {
                         methodList[i].getMethod().invoke(methodList[i].getPlugin(), e);
                     } catch (Exception ex) {
                         ex.printStackTrace();
+                        methodList[i].getPlugin().handleException(ex);
                     }
                 }
                 if (finished != null) {
