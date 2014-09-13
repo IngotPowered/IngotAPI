@@ -29,4 +29,6 @@ public abstract class Ingot {
     public abstract EventFactory getEventFactory();
 
     public abstract CommandRegistry getCommandRegistry();
+
+    public abstract void broadcastMessage(String message);
 }
