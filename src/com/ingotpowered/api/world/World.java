@@ -14,6 +14,8 @@ public interface World {
 
     public void setDifficulty(Difficulty difficulty);
 
+    public String getName();
+
     public Chunk getChunkAt(ChunkPosition position);
 
     public Chunk getChunkAt(int x, int z);
