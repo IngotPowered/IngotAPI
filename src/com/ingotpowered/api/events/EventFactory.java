@@ -51,6 +51,9 @@ public class EventFactory {
     public void callEvent(final Event e, final Runnable finished) {
         ArrayList<PluginMethodPair> hooks = eventMap.get(e.getClass());
         if (hooks == null) {
+            if (finished != null) {
+                threadPool.submit(finished);
+            }
             return;
         }
         PluginMethodPair[] methods;
