@@ -11,12 +11,18 @@ public class CommandRegistry {
     private ConcurrentHashMap<String, CommandHandler<Ingot>> serverCommandMap = new ConcurrentHashMap<String, CommandHandler<Ingot>>();
 
     public void registerPlayerCommand(CommandHandler<Player> command) {
+        if(command == null){
+            throw new NullPointerException("Command cannot be null.");
+        }
         synchronized (playerCommandMap) {
             playerCommandMap.put(command.getCommandName().toLowerCase(), command);
         }
     }
 
     public void registerServerCommand(CommandHandler<Ingot> command) {
+        if(command == null){
+            throw new NullPointerException("Command cannot be null.");
+        }
         synchronized (serverCommandMap) {
             serverCommandMap.put(command.getCommandName().toLowerCase(), command);
         }
@@ -27,7 +33,18 @@ public class CommandRegistry {
         if (cmd == null) {
             return false;
         }
-        cmd.execute(p, args);
+        try {
+            cmd.execute(p, args);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            try {
+                cmd.getPlugin().handleException(ex);
+            }
+            catch(Exception ex2){
+                ex2.printStackTrace();
+            }
+        }
         return true;
     }
 
@@ -36,7 +53,18 @@ public class CommandRegistry {
         if (cmd == null) {
             return false;
         }
-        cmd.execute(i, args);
+        try {
+            cmd.execute(i, args);
+        }
+        catch(Exception ex){
+            ex.printStackTrace();
+            try{
+                cmd.getPlugin().handleException(ex);
+            }
+            catch(Exception ex2){
+                ex2.printStackTrace();
+            }
+        }
         return true;
     }
 }
