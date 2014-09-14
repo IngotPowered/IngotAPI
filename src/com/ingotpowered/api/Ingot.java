@@ -5,6 +5,9 @@ import com.ingotpowered.api.events.EventFactory;
 
 public abstract class Ingot {
 
+    public static final String VERSION_NAME = "1.8.Ingot";
+    public static final int PROTOCOL_VERSION = 47;
+
     private static Ingot ingot;
 
     public static void setServer(Ingot instance) {
