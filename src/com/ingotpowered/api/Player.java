@@ -1,6 +1,8 @@
 package com.ingotpowered.api;
 
-public interface Player {
+import com.ingotpowered.api.entity.Entity;
+
+public interface Player extends Entity{
 
     public void sendMessage(String message);
 
