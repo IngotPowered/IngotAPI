@@ -10,4 +10,6 @@ public interface Chunk {
 
     public int getZ();
 
+    public Block getBlock(int x, int y, int z);
+
 }
