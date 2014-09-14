@@ -25,6 +25,15 @@ public class Position {
     }
 
     public Position(double x, double y, double z) {
+        if(x > Integer.MAX_VALUE || x < Integer.MIN_VALUE){
+            throw new IllegalArgumentException("x is out of range.");
+        }
+        if(y > Integer.MAX_VALUE || y < Integer.MIN_VALUE){
+            throw new IllegalArgumentException("y is out of range.");
+        }
+        if(z > Integer.MAX_VALUE || y < Integer.MIN_VALUE){
+            throw new IllegalArgumentException("z is out of range.");
+        }
         this.x = x;
         this.y = y;
         this.z = z;
