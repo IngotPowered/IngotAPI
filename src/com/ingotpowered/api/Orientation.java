@@ -2,12 +2,12 @@ package com.ingotpowered.api;
 
 public class Orientation {
 
-    private float yaw;
-    private float pitch;
+    private final float yaw;
+    private final float pitch;
 
     public Orientation(float yaw, float pitch) {
-        this.yaw = yaw;
-        this.pitch = pitch;
+        this.yaw = yaw%360;
+        this.pitch = pitch%360;
     }
 
     public float getYaw() {
