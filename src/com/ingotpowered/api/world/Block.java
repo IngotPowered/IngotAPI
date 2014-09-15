@@ -10,6 +10,6 @@ public interface Block {
 
     public String getType();
 
-    public byte getData();
+    public byte getID();
 
 }
