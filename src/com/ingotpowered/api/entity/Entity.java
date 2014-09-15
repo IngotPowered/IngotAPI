@@ -22,7 +22,7 @@ public interface Entity {
     public void teleport(Position position, World world, Orientation orientation);
 
     public void mount(Rideable rideable);
-    public void dismount(Rideable rideable);
+    public void dismount();
 
     public void sendStatus(EntityAnimation animation);
 

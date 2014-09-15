@@ -2,7 +2,7 @@ package com.ingotpowered.api;
 
 import com.ingotpowered.api.entity.Entity;
 
-public interface Player extends Entity{
+public interface Player extends Entity {
 
     public void sendMessage(String message);
 
