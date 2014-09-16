@@ -2,6 +2,7 @@ package com.ingotpowered.api;
 
 import com.ingotpowered.api.commands.CommandRegistry;
 import com.ingotpowered.api.events.EventFactory;
+import com.ingotpowered.api.world.WorldManager;
 
 public abstract class Ingot {
 
@@ -34,4 +35,6 @@ public abstract class Ingot {
     public abstract CommandRegistry getCommandRegistry();
 
     public abstract void broadcastMessage(String message);
+
+    public abstract WorldManager getWorldManager();
 }
