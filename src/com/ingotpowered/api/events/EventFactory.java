@@ -22,7 +22,7 @@ public class EventFactory {
         threadPool = Executors.newFixedThreadPool(Ingot.getServer().getConfig().getPluginEventThreads());
     }
 
-    public void registerHooks(Plugin plugin, EventHandler handler) {;
+    public void registerHooks(Plugin plugin, EventHandler handler) {
         Method[] availableMethods = handler.getClass().getMethods();
         for (int i = 0; i < availableMethods.length; i++) {
             if (availableMethods[i].getName().equals("equals") || availableMethods[i].getName().equals("wait")) {
