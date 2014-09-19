@@ -2,6 +2,14 @@ package com.ingotpowered.api;
 
 public class Velocity {
 
+    private Velocity(){}
+
+    public Velocity(double x, double y, double z){
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
     public static Velocity fromLong(long l) {
         Velocity v = new Velocity();
         v.x = ((int) (l >> 38)) / 32;
