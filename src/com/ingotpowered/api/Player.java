@@ -20,6 +20,10 @@ public interface Player extends Entity {
     public String getBase64EncodedSkin();
 
     public boolean isOnGround();
+    
+    public boolean isSprintig();
+    
+    public boolean isCrouching();
 
     public long getPing();
 
